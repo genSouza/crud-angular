@@ -33,6 +33,7 @@ namespace PaymentAPI
             );
 
             services.AddControllers();
+            services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PaymentAPI", Version = "v1" });
@@ -51,6 +52,10 @@ namespace PaymentAPI
 
             app.UseHttpsRedirection();
 
+            app.UseCors(options =>
+            {
+                options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+            });
             app.UseRouting();
 
             app.UseAuthorization();
