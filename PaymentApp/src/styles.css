@@ -22,6 +22,6 @@ table tbody tr:hover {
 }
 
 /*for invalid form controls*/
-input.valid {
+input.invalid {
   border-color: red;
 }
