@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PaymentDetail } from './payment-detail.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
@@ -18,16 +18,15 @@ export class PaymentDetailService {
     return this.http.post(this.baseURL, this.formData);
   }
 
+  putPaymentDetail() {
+    return this.http.put(`${this.baseURL}/${this.formData.paymentDetailId}`, this.formData);
+  }
+
   refreshList() {
     this.http
       .get(this.baseURL)
       .toPromise()
       .then((res) => this.list = res as PaymentDetail[]);
   }
-  // refreshList(): Observable<any[]> {
-  //   return this.http
-  //     .get<any[]>(this.baseURL)
-  //     // .toPromise()
-  //     // .then((res) => (this.list = res as PaymentDetail[]));
-  // }
+
 }

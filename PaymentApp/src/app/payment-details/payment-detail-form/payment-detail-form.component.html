@@ -1,8 +1,8 @@
-<form novalidate #form="ngForm" (submit)="onSubmit(form)">
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
   <input
     type="hidden"
     name="paymentDetailId"
-    [value]="service.formData.PaymentDetailId"
+    [value]="service.formData.paymentDetailId"
   />
   <div class="form-group">
     <label>CARD OWNER NAME</label>
@@ -11,7 +11,7 @@
       placeholder="Full name"
       name="CardOwnerName"
       #CardOwnerName="ngModel"
-      [(ngModel)]="service.formData.CardOwnerName"
+      [(ngModel)]="service.formData.cardOwnerName"
       required [class.invalid]="CardOwnerName.invalid && CardOwnerName.touched"
     />
   </div>
@@ -22,7 +22,7 @@
       placeholder="16 Digit Card Number"
       name="CardNumber"
       #CardNumber="ngModel"
-      [(ngModel)]="service.formData.CardNumber"
+      [(ngModel)]="service.formData.cardNumber"
       required [class.invalid]="CardNumber.invalid && CardNumber.touched"
       maxlength="16"
       minlength="16"
@@ -37,7 +37,7 @@
         placeholder="Security code"
         name="SecurityCode"
         #SecurityCode="ngModel"
-        [(ngModel)]="service.formData.SecurityCode"
+        [(ngModel)]="service.formData.securityCode"
         required [class.invalid]="SecurityCode.invalid && SecurityCode.touched"
         maxlength="3"
         minlength="3"
@@ -50,7 +50,7 @@
         placeholder="MM/YY"
         name="ExpirationDate"
         #ExpirationDate="ngModel"
-        [(ngModel)]="service.formData.ExpirationDate"
+        [(ngModel)]="service.formData.expirationDate"
         required [class.invalid]="ExpirationDate.invalid && ExpirationDate.touched"
         maxlength="5"
         minlength="5"
