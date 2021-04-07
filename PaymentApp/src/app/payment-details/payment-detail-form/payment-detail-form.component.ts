@@ -18,10 +18,9 @@ export class PaymentDetailFormComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-
-    if(this.service.formData.paymentDetailId == 0) {
+    if (this.service.formData.paymentDetailId == 0) {
       this.insertRecord(form);
-    }else {
+    } else {
       this.updateRecord(form);
     }
   }
@@ -41,7 +40,7 @@ export class PaymentDetailFormComponent implements OnInit {
     );
   }
 
-   updateRecord(form: NgForm){
+  updateRecord(form: NgForm) {
     this.service.putPaymentDetail().subscribe(
       (res) => {
         this.resetForm(form);
@@ -55,7 +54,8 @@ export class PaymentDetailFormComponent implements OnInit {
         );
       }
     );
-   }
+  }
+
 
   resetForm(form: NgForm) {
     form.form.reset();
